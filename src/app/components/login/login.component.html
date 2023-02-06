@@ -1,0 +1,79 @@
+<section id="main" class="main">
+    <section id="login">
+        <div class="main2 container" id="container">
+            <div class="form-container sign-up-container">
+                <form  [formGroup]="signupForm" (ngSubmit)="onSubmitSignup()">
+                    <h1>Create Account</h1>
+                   
+                    <input type="email" placeholder="Email" formControlName="email" />
+                    <div *ngIf="signupForm.controls['email'].errors && (signupForm.controls['email'].dirty || loginForm.controls['email'].touched)">
+                        <div *ngIf="signupForm.controls['email'].errors.required">
+                            <small class="text-danger">Name is required</small>
+                        </div>
+                    </div>
+
+                    <input type="password" placeholder="Password" formControlName="password"/>
+                    <div *ngIf="signupForm.controls['password'].errors && (signupForm.controls['password'].dirty || loginForm.controls['email'].touched)">
+                        <div *ngIf="signupForm.controls['password'].errors.required">
+                            <small class="text-danger">Password is required</small>
+                        </div>
+                    </div>
+
+                    <button>Sign Up</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <h1>Login</h1>
+                    <!-- <div class="social-container">
+                            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        <span>or use your account</span> -->
+                    <input type="email" placeholder="Email" formControlName="email" />
+                    <div *ngIf="loginForm.controls['email'].errors && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)">
+                        <div *ngIf="loginForm.controls['email'].errors.required">
+                            <small class="text-danger">Name is required</small>
+                        </div>
+                    </div>
+
+                    <input type="password" placeholder="Password" formControlName="password"/>
+                    <div *ngIf="loginForm.controls['password'].errors && (loginForm.controls['password'].dirty || loginForm.controls['email'].touched)">
+                        <div *ngIf="loginForm.controls['password'].errors.required">
+                            <small class="text-danger">Password is required</small>
+                        </div>
+                    </div>
+                    <!-- <div class="alert alert-danger" role="alert">
+                        Incorrect login credentials
+                    </div> -->
+
+                    <a href="#">Forgot your password?</a>
+                    <button >Login</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Welcome Back!</h1>
+                        <p>Connect with virtual class room</p>
+                        <button class="ghost" id="signIn">Login</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Hello, User!</h1>
+                        <p>Enter your credentials to get started</p>
+
+                        <!-- Account created successfu lly -->
+                        <button class="ghost" id="signUp">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+</section>

@@ -1,0 +1,21 @@
+<div class="m-5">
+
+    <div>
+        <h4>Add Books</h4>
+    </div>
+    <form [formGroup]="authorForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-3">
+            <label for="name">Name</label>
+            <input class="form-control" type="text" id="name" formControlName="name">
+            <div *ngIf="authorForm.controls['name'].errors && (authorForm.controls['name'].dirty || authorForm.controls['name'].touched)">
+                <div *ngIf="authorForm.controls['name'].errors.required">
+                    <small class="text-danger">Name is required</small>
+                </div>
+            </div>
+        </div>
+        <div class="d-grid gap-2">
+            <button  class="btn btn-primary"  type="submit">Submit</button>
+          </div>
+    </form>
+    
+</div>

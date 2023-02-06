@@ -1,0 +1,18 @@
+<div>
+    <table>
+        <thead>
+            <tr class="t-header">
+                <th>Name</th>
+                <th>Date</th>
+                <th>Stream</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let attend of attendance;">
+            <td>{{attend.name}}</td>
+            <td>{{attend.date}}</td>
+            <td>{{attend.stream}}</td>
+            <td>{{attend.present?'yes':'no'}}</td>
+        </tr>
+    </table>
+</div>

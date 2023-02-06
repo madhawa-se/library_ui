@@ -1,0 +1,36 @@
+h3 {
+    font-size: 35px;
+    padding: 10px 5px;
+}
+
+.all-wraper {
+    box-shadow: 0px 6px 12px #00000029;
+    text-align: left;
+}
+
+.t-header {
+    color: white;
+    background-color: #4C60E1;
+
+    th {
+        padding: 10px 60px;
+        border: 1px #333 solid;
+        font-size: 16px;
+
+    }
+}
+
+table {
+    border-radius: 12px;
+    text-align: left;
+
+    td {
+        padding: 10px 5px;
+        text-align: center;
+
+    }
+}
+
+.check-box {
+    padding: 20px;
+}

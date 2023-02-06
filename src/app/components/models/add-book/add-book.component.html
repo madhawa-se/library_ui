@@ -1,0 +1,50 @@
+<div class="m-5">
+
+    <div>
+        <h4>Add Books</h4>
+    </div>
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-3">
+            <label for="name">Name</label>
+            <input class="form-control" type="text" id="name" formControlName="name">
+            <div *ngIf="bookForm.controls['name'].errors && (bookForm.controls['name'].dirty || bookForm.controls['name'].touched)">
+                <div *ngIf="bookForm.controls['name'].errors.required">
+                    <small class="text-danger">Name is required</small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="ISBN">ISBN</label>
+            <input class="form-control" type="text" id="ISBN" formControlName="ISBN">
+            <div *ngIf="bookForm.controls['ISBN'].errors && (bookForm.controls['ISBN'].dirty || bookForm.controls['ISBN'].touched)">
+                <div *ngIf="bookForm.controls['ISBN'].errors.required">
+                    <small class="text-danger">ISBN is required</small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="genre">Genre</label>
+            <select class="form-control" id="genre" formControlName="genre">
+                <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+            </select>
+            <div *ngIf="bookForm.controls['genre'].errors && (bookForm.controls['genre'].dirty || bookForm.controls['genre'].touched)">
+                <div *ngIf="bookForm.controls['genre'].errors.required">
+                    <small class="text-danger">Genre is required</small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="amount">Amount</label>
+            <input class="form-control" type="number" id="amount" formControlName="amount">
+            <div *ngIf="bookForm.controls['amount'].errors && (bookForm.controls['amount'].dirty || bookForm.controls['amount'].touched)">
+                <div *ngIf="bookForm.controls['amount'].errors.required">
+                    <small class="text-danger">Amount is required</small>
+                </div>
+            </div>
+        </div>
+        <div class="d-grid gap-2">
+            <button  class="btn btn-primary"  type="submit">Submit</button>
+          </div>
+    </form>
+    
+</div>

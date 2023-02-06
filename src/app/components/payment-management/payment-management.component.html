@@ -1,0 +1,73 @@
+
+
+
+<div class="main-container">
+    <div class="sidebar-wrapper">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="content">
+        <div class="C-manage-wraper">
+            <div class="">
+                <div class="">
+                    <div class="all-wraper">
+                        <h3 class="title">Manage Payments</h3>
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Classes</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Payments</li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <div class="form-group">
+                            <label for="Course">Class</label>
+                            <select class="form-control" id="Course">
+                                <option>{{class}}</option>
+                                <option>Education Champion</option>
+                                <option>Guidance Talent</option>
+                                <option>Impact Training</option>
+                                <option>Limitless Horizons</option>
+                            </select>
+                        </div>
+                
+                        <div class="row card-payment">
+                            <div class="col-3">
+                                <div class="cout">05</div>
+                                <p>Paid</p>
+                            </div>
+                            <div class="col-3">
+                                <div class="cout">03</div>
+                                <p>Pending</p>
+                            </div>
+                        </div>
+                        <div>
+                
+                            <table>
+                                <thead>
+                                    <tr class="t-header">
+                                        <th>Student </th>
+                                        <th>Paid Date </th>
+                                        <th>Paid Amount </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let payment of payments;">
+                                        <td> {{payment.name}}</td>
+                                        <td>{{payment.date}}</td>
+                                        <td> {{payment.amount}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td> shashi nishadi</td>
+                                        <td> 2022.08.15</td>
+                                        <td> 5000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

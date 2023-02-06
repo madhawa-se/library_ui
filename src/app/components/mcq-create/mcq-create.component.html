@@ -1,0 +1,30 @@
+<div class="main-container">
+    <div class="sidebar-wrapper">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="content">
+        <div class="C-manage-wraper">
+            <div class="container">
+                <div class="mcq">
+                    <h3>MCQ</h3>
+                    
+                    <div class="breadcrumb-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="#">Classes</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Create MCQ</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    
+                    <alert type="success">
+                        Question <strong>{{qnum}}</strong>
+                    </alert>
+                </div>
+                
+                <app-mcq-create-card> </app-mcq-create-card>
+            </div>
+        </div>
+    </div>
+</div>

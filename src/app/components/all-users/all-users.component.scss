@@ -1,0 +1,36 @@
+.all-wraper {
+    box-shadow: 0px 6px 12px #00000029;
+    text-align: left;
+    min-height: 900px;
+}
+
+.btn-wraper {
+    text-align: left;
+    padding: 30px 0px;
+}
+
+.btn {
+    padding: 5px 60px;
+
+}
+.btn-ban{
+    width: 100px;
+    text-align: center;
+    padding: 5px 10px;
+
+}
+
+.t-header {
+    color: white;
+    background-color: #4C60E1;
+
+    th {
+        padding: 10px 60px;
+        border: 1px #333 solid;
+        font-size: 15px;
+    }
+}
+
+td { 
+text-align: center;
+}

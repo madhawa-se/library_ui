@@ -1,0 +1,46 @@
+<div class="main-container">
+    <div class="sidebar-wrapper">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="content">
+        <div class="C-manage-wraper">
+            <div class="container-x">
+                <div class="all-wraper">
+                    <h3 class="title">Assignment Submission</h3>
+                    <div class="breadcrumb-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="#">Assignments</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Submissions</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="check-box">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="unmark submissions">
+                            <label class="form-check-label" for="unmark submissions">
+                                Show only unmark submissions
+                            </label>
+
+                            <button type="button" class="btn btn-primary" (click)="openModal()">Update</button>
+                        </div>
+                    </div>
+                    <table class="lms-table">
+                        <thead class="t-header">
+                            <th>Author  Name</th>
+                            <th colspan="2">Operations</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let auther of authers;" >
+                                <td>{{auther.name}}</td>
+                                <td><button type="button" class="btn btn-primary" (click)="openEditModal(auther)">Update</button></td>
+                                <td><button type="button" class="btn btn-danger" (click)="deleteAuthor(auther.autherId)">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

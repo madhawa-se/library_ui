@@ -1,0 +1,67 @@
+.mcq h3{
+	text-align: center;
+}
+.mcq-box{
+	width: 80%;
+	margin: 30px auto;
+	background: #fff;
+	box-shadow: 0px 6px 12px #00000029;
+	position: relative;
+	padding: 40px;
+	transition: .6s;
+}
+.pluse-icon{
+	position: absolute;
+	top: -40px;
+	color: #4C60E1;
+	right: 0;
+	font-size: 40px;
+}
+.mcq-box p{
+	background: #fff;
+	border: 1px #333 solid;
+	
+	padding: 15px;
+}
+.mcq-box-input{
+	margin-top: 30px;
+	display: block;
+}
+.btn{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.btn button{
+	border: none;
+	background: #4C60E1;
+	padding: 10px 35px;
+	color: #fff;
+	border-radius: 4px;
+}
+.class1 {
+    /* text-align: center; */
+   
+    margin: 0 auto;
+    display: inline-block;
+    margin: 0 auto;
+  
+    
+}
+.class1 a{
+    text-align: center;
+    background: #4C60E1;
+    margin: 30px auto;
+    display: inline-block;
+    padding: 15px 55px;
+    color: #fff;
+	border-radius: 5px;
+	margin-right: 30px;
+	transition: .6s;
+}
+.class1 a:hover{
+    text-align: center;
+    background: #000;
+	color: #fff;
+   
+}
