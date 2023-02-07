@@ -17,12 +17,14 @@
     list-style: none;
     background-color: #e9ecef;
     border-radius: 0.25rem;
-    padding: 11px 50px 0px 50px;
+    padding: 11px 50px 0px 20px;
     width: 100%;
 }
 
 .title {
     padding: 20px !important;
+    padding-left: 0 !important;
+
 }
 
 .form-check .form-check-input {

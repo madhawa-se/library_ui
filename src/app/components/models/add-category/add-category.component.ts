@@ -1,44 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { AuthorService } from 'src/app/services/author.service';
-import { BookService } from 'src/app/services/book.service';
+import { CategoryService } from 'src/app/services/category.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-add-author',
-  templateUrl: './add-author.component.html',
-  styleUrls: ['./add-author.component.scss']
+  selector: 'app-add-category',
+  templateUrl: './add-category.component.html',
+  styleUrls: ['./add-category.component.scss']
 })
-export class AddAuthorComponent implements OnInit {
+export class AddCategoryComponent implements OnInit {
 
-  author:any;
-  authorForm: FormGroup;
+  category:any;
+  categoryForm: FormGroup;
   isUpdate=false;
-  constructor(private fb: FormBuilder, private authorService: AuthorService,private bsModalRef:BsModalRef) {
-    this.authorForm = this.fb.group({
+  constructor(private fb: FormBuilder, private categoryService: CategoryService,private bsModalRef:BsModalRef) {
+    this.categoryForm = this.fb.group({
       name: ['', Validators.required],
     });
   }
 
   ngOnInit(): void {
-    if(this.author){
+    if(this.category){
       this.isUpdate=true;
       this.fetchFormData();
     }
   }
 
   fetchFormData() {
-    this.authorForm.patchValue({
-      name: this.author.name
+    this.categoryForm.patchValue({
+      name: this.category.name
     });
   }
 
   onSubmit() {
-    console.log(this.authorForm.value);
+    console.log(this.categoryForm.value);
 
-    if (!this.authorForm.invalid) {
-      console.log(this.authorForm.value);
+    if (!this.categoryForm.invalid) {
+      console.log(this.categoryForm.value);
      if(this.isUpdate){
        this.update();
      }else{
@@ -49,7 +48,7 @@ export class AddAuthorComponent implements OnInit {
   }
 
   add(){
-    this.authorService.addAuthor(this.authorForm.value).subscribe((res) => {
+    this.categoryService.add(this.categoryForm.value).subscribe((res) => {
       this.bsModalRef.hide();
       Swal.fire({
         title: 'Success!',
@@ -67,7 +66,7 @@ export class AddAuthorComponent implements OnInit {
   }
 
   update(){
-    this.authorService.updateAuthor(this.author.autherId,this.authorForm.value).subscribe((res) => {
+    this.categoryService.update(this.category.genreId ,this.categoryForm.value).subscribe((res) => {
       this.bsModalRef.hide();
       Swal.fire({
         title: 'Success!',
@@ -84,3 +83,4 @@ export class AddAuthorComponent implements OnInit {
   }
 
 }
+

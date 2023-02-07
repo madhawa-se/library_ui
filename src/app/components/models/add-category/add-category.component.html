@@ -1,14 +1,14 @@
 <div class="m-5">
 
     <div>
-        <h4>Add Author</h4>
+        <h4>Add Category</h4>
     </div>
-    <form [formGroup]="authorForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
         <div class="form-group mb-3">
             <label for="name">Name</label>
             <input class="form-control" type="text" id="name" formControlName="name">
-            <div *ngIf="authorForm.controls['name'].errors && (authorForm.controls['name'].dirty || authorForm.controls['name'].touched)">
-                <div *ngIf="authorForm.controls['name'].errors.required">
+            <div *ngIf="categoryForm.controls['name'].errors && (categoryForm.controls['name'].dirty || categoryForm.controls['name'].touched)">
+                <div *ngIf="categoryForm.controls['name'].errors.required">
                     <small class="text-danger">Name is required</small>
                 </div>
             </div>

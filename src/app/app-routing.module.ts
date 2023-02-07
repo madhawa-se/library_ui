@@ -7,6 +7,7 @@ import { AssignmentComponent } from './components/assignment/assignment.componen
 import { AttendanceComponent } from './components/attendance/attendance.component';
 import { AutherComponent } from './components/auther/auther.component';
 import { BookSearchComponent } from './components/book-search/book-search.component';
+import { CategoryComponent } from './components/category/category.component';
 import { ClassesComponent } from './components/classes/classes.component';
 import { CourseComponent } from './components/course/course.component';
 import { CreateClassComponent } from './components/create-class/create-class.component';
@@ -26,6 +27,9 @@ const routes: Routes = [
   { path: 'book-search', component: BookSearchComponent },
   {
     path: 'author', component: AutherComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'category', component: CategoryComponent, canActivate: [AuthGuard]
   },
   //////////////////////////////////////////////////
 

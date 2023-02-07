@@ -14,4 +14,8 @@ export class AuthorService {
   addAuthor(author:any){
     return this.http.post("http://localhost:3000/auther",author);
   }
+
+  updateAuthor(id:number,author:any){
+    return this.http.put(`http://localhost:3000/auther/${id}`,author);
+  }
 }

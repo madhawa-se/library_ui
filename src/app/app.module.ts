@@ -41,6 +41,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { AutherComponent } from './components/auther/auther.component';
 import { AddAuthorComponent } from './components/models/add-author/add-author.component';
 import { TokenInterceptor } from './token.interceptor';
+import { CategoryComponent } from './components/category/category.component';
+import { AddCategoryComponent } from './components/models/add-category/add-category.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,9 @@ import { TokenInterceptor } from './token.interceptor';
     SidebarComponent,
     AddBookComponent,
     AutherComponent,
-    AddAuthorComponent
+    AddAuthorComponent,
+    CategoryComponent,
+    AddCategoryComponent
   ],
   imports: [
     BrowserModule,

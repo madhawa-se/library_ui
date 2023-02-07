@@ -6,29 +6,31 @@
         <div class="C-manage-wraper">
             <div class="container-x">
                 <div class="all-wraper m-5">
-                    <h3 class="title">Authors</h3>
+                    <h3 class="title">Category</h3>
                     <div class="breadcrumb-wrap">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Authors</li>
+                                <li class="breadcrumb-item active" aria-current="page">Category</li>
                             </ol>
                         </nav>
                     </div>
-                   
+
                     <div class="mt-5 mb-3">
-                        <button type="button" class="btn btn-primary" (click)="openModal()">Add New Book</button>
+                        <button type="button" class="btn btn-primary" (click)="openModal()">Add New Category</button>
                     </div>
                     <table class="lms-table">
                         <thead class="t-header">
-                            <th>Author  Name</th>
+                            <th>Category Name</th>
                             <th colspan="2">Operations</th>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let auther of authers;" >
-                                <td>{{auther.name}}</td>
-                                <td><button type="button" class="btn btn-primary" (click)="openEditModal(auther)">Update</button></td>
-                                <td><button type="button" class="btn btn-danger" (click)="deleteAuthor(auther.autherId)">Delete</button></td>
+                            <tr *ngFor="let category of categories;">
+                                <td>{{category.name}}</td>
+                                <td><button type="button" class="btn btn-primary"
+                                        (click)="openEditModal(category)">Update</button></td>
+                                <td><button type="button" class="btn btn-danger"
+                                        (click)="deleteCategory(category.genreId)">Delete</button></td>
                             </tr>
                         </tbody>
                     </table>
