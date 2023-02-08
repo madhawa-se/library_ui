@@ -1,10 +1,28 @@
 <section id="sidebar" class="for-desktop">
     <ul>
-        <li><a href=""><img src="./assets/images/logo.png"></a></li>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Books</a></li>
-        <li><a href="#">Payments</a></li>
-        <li><a href="#">Setting</a></li>
-        
+        <li><img src="./assets/images/logo.png"></li>
+
+        <ng-container *ngIf="user?.role=='admin'">
+
+            <li><a [routerLink]="['/all-books']">Books</a></li>
+            <li><a [routerLink]="['/lend']">Lend Books</a></li>
+            <li><a [routerLink]="['/category']">Category</a></li>
+            <li><a [routerLink]="['/author']">Authors</a></li>
+            <li><a [routerLink]="['/users']">Users</a></li>
+            <li><a [routerLink]="['/payments']">Payments</a></li>
+            <li><a [routerLink]="['/setting']">Setting</a></li>
+
+        </ng-container>
+
+        <ng-container *ngIf="user?.role=='member'">
+
+            <li><a [routerLink]="['/book-search']">Search</a></li>
+            <li><a [routerLink]="['/borrow']">Borrowed Books</a></li>
+            <li><a [routerLink]="['/payments']">Payments</a></li>
+            <li><a [routerLink]="['/setting']">Setting</a></li>
+        </ng-container>
+
+        <li><a (click)="logout()">Logout</a></li>
+
     </ul>
 </section>

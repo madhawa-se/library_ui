@@ -15,24 +15,44 @@
         </div>
         <div class="form-group mb-3">
             <label for="ISBN">ISBN</label>
-            <input class="form-control" type="text" id="ISBN" formControlName="ISBN">
-            <div *ngIf="bookForm.controls['ISBN'].errors && (bookForm.controls['ISBN'].dirty || bookForm.controls['ISBN'].touched)">
-                <div *ngIf="bookForm.controls['ISBN'].errors.required">
+            <input class="form-control" type="text" id="ISBN" formControlName="isbn">
+            <div *ngIf="bookForm.controls['isbn'].errors && (bookForm.controls['isbn'].dirty || bookForm.controls['isbn'].touched)">
+                <div *ngIf="bookForm.controls['isbn'].errors.required">
                     <small class="text-danger">ISBN is required</small>
                 </div>
             </div>
         </div>
+
         <div class="form-group mb-3">
-            <label for="genre">Genre</label>
-            <select class="form-control" id="genre" formControlName="genre">
-                <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+            <label for="des">Description</label>
+            <textarea class="form-control"  id="des" formControlName="description"></textarea>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="genre">Author</label>
+            <select class="form-control" id="genre" formControlName="autherId">
+                <option *ngFor="let author of authors" [value]="author.autherId">{{ author.name }}</option>
             </select>
-            <div *ngIf="bookForm.controls['genre'].errors && (bookForm.controls['genre'].dirty || bookForm.controls['genre'].touched)">
-                <div *ngIf="bookForm.controls['genre'].errors.required">
-                    <small class="text-danger">Genre is required</small>
+            <div *ngIf="bookForm.controls['autherId'].errors && (bookForm.controls['autherId'].dirty || bookForm.controls['autherId'].touched)">
+                <div *ngIf="bookForm.controls['autherId'].errors.required">
+                    <small class="text-danger">Auther is required</small>
                 </div>
             </div>
         </div>
+
+        <div class="form-group mb-3">
+            <label for="genre">Category</label>
+            <select class="form-control" id="genre" formControlName="genreId">
+                <option *ngFor="let genre of genres" [value]="genre.genreId">{{ genre.name }}</option>
+            </select>
+            <div *ngIf="bookForm.controls['genreId'].errors && (bookForm.controls['genreId'].dirty || bookForm.controls['genreId'].touched)">
+                <div *ngIf="bookForm.controls['genreId'].errors.required">
+                    <small class="text-danger">Category is required</small>
+                </div>
+            </div>
+        </div>
+
+        
         <div class="form-group mb-3">
             <label for="amount">Amount</label>
             <input class="form-control" type="number" id="amount" formControlName="amount">

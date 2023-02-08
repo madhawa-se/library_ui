@@ -13,7 +13,7 @@ export class AutherComponent implements OnInit {
   modalRef?: BsModalRef | null;
   modalRef2?: BsModalRef;
   authers: any[];
-  constructor(private modalService: BsModalService,private http: HttpClient) { }
+  constructor(private modalService: BsModalService,private http: HttpClient, public bsModalRef: BsModalRef) { }
 
   ngOnInit(): void {
     this.fetchAuthers();
@@ -29,6 +29,9 @@ export class AutherComponent implements OnInit {
 
   openModal() {
     this.modalRef = this.modalService.show(AddAuthorComponent);
+    this.modalRef.content.event.subscribe((res: any) => {
+      this.fetchAuthers();
+    });
   }
 
   openEditModal(author:any){
@@ -36,6 +39,10 @@ export class AutherComponent implements OnInit {
       initialState: {
         author:author
       }
+    });
+
+    this.modalRef.content.event.subscribe((res: any) => {
+      this.fetchAuthers();
     });
   }
 
@@ -53,6 +60,7 @@ export class AutherComponent implements OnInit {
       if (result.isConfirmed) {
         this.http.delete(`http://localhost:3000/auther/${id}`).subscribe((res)=>{
           Swal.fire('Successful...', '', 'success') ;
+          this.fetchAuthers();
         });
       }
     })

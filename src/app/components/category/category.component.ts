@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import Swal from 'sweetalert2/dist/sweetalert2.js';  
@@ -13,11 +13,15 @@ export class CategoryComponent implements OnInit {
   modalRef?: BsModalRef | null;
   modalRef2?: BsModalRef;
   categories: any[];
+
+  
   constructor(private modalService: BsModalService,private http: HttpClient) { }
 
   ngOnInit(): void {
     this.fetchCategories();
   }
+
+  
 
   fetchCategories() {
     this.http.get(`http://localhost:3000/category`).subscribe((res)=>{
@@ -29,6 +33,9 @@ export class CategoryComponent implements OnInit {
 
   openModal() {
     this.modalRef = this.modalService.show(AddCategoryComponent);
+    this.modalRef.content.event.subscribe((res: any) => {
+      this.fetchCategories();
+    });
   }
 
   openEditModal(category:any){
@@ -36,6 +43,9 @@ export class CategoryComponent implements OnInit {
       initialState: {
         category:category
       }
+    });
+    this.modalRef.content.event.subscribe((res: any) => {
+      this.fetchCategories();
     });
   }
 
@@ -53,6 +63,7 @@ export class CategoryComponent implements OnInit {
       if (result.isConfirmed) {
         this.http.delete(`http://localhost:3000/category/${id}`).subscribe((res)=>{
           Swal.fire('Successful...', '', 'success') ;
+          this.fetchCategories();
         });
       }
     })

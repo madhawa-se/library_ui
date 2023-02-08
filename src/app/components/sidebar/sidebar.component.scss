@@ -9,6 +9,7 @@
 	
 	padding: 100px 20px 40px;
 	transition: .6s;
+	width: 250px;
 }
 #sidebar ul li{
 	margin-bottom: 20px;
@@ -22,7 +23,7 @@
 	color: #1E2224;
 	
 }
-#sidebar ul li a img{
-	width: 150px;
-	
+#sidebar ul li  img{
+	width: 100%;
+    max-width: 100px;
 }

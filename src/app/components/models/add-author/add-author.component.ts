@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { AuthorService } from 'src/app/services/author.service';
@@ -12,18 +12,21 @@ import Swal from 'sweetalert2';
 })
 export class AddAuthorComponent implements OnInit {
 
-  author:any;
+  public event: EventEmitter<any> = new EventEmitter();
+
+
+  author: any;
   authorForm: FormGroup;
-  isUpdate=false;
-  constructor(private fb: FormBuilder, private authorService: AuthorService,private bsModalRef:BsModalRef) {
+  isUpdate = false;
+  constructor(private fb: FormBuilder, private authorService: AuthorService, private bsModalRef: BsModalRef) {
     this.authorForm = this.fb.group({
       name: ['', Validators.required],
     });
   }
 
   ngOnInit(): void {
-    if(this.author){
-      this.isUpdate=true;
+    if (this.author) {
+      this.isUpdate = true;
       this.fetchFormData();
     }
   }
@@ -39,16 +42,16 @@ export class AddAuthorComponent implements OnInit {
 
     if (!this.authorForm.invalid) {
       console.log(this.authorForm.value);
-     if(this.isUpdate){
-       this.update();
-     }else{
+      if (this.isUpdate) {
+        this.update();
+      } else {
         this.add();
-     }
+      }
     }
 
   }
 
-  add(){
+  add() {
     this.authorService.addAuthor(this.authorForm.value).subscribe((res) => {
       this.bsModalRef.hide();
       Swal.fire({
@@ -56,7 +59,8 @@ export class AddAuthorComponent implements OnInit {
         text: 'The request was successful',
         icon: 'success'
       });
-    },error=>{
+      this.event.emit();
+    }, error => {
       Swal.fire({
         title: 'Error!',
         text: 'The request failed',
@@ -66,15 +70,18 @@ export class AddAuthorComponent implements OnInit {
 
   }
 
-  update(){
-    this.authorService.updateAuthor(this.author.autherId,this.authorForm.value).subscribe((res) => {
+  update() {
+    this.authorService.updateAuthor(this.author.autherId, this.authorForm.value).subscribe((res) => {
       this.bsModalRef.hide();
       Swal.fire({
         title: 'Success!',
         text: 'The request was successful',
         icon: 'success'
       });
-    },error=>{
+
+      this.event.emit();
+
+    }, error => {
       Swal.fire({
         title: 'Error!',
         text: 'The request failed',

@@ -1,0 +1,60 @@
+<div class="main-container">
+    <div class="sidebar-wrapper">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="content">
+        <div class="C-manage-wraper">
+            <div class="container-x">
+                <div class="all-wraper m-5">
+                    <h3 class="title">Borrowed Books</h3>
+                    <div class="breadcrumb-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Authors</li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                    <table class="table lms-table">
+                        <thead class="t-header">
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Borrowed Date</th>
+                                <th scope="col">Due Date</th>
+                                <th scope="col">ISBN</th>
+                                <th scope="col">Genre</th>
+                                <th scope="col">Author</th>
+                                <th scope="col">Fine</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let borrow of borrows">
+                                <td>{{ borrow.book.name }}</td>
+                                <td>{{ borrow.date | date: 'MMM d, y'}}</td>
+                                <td>{{ borrow.dueDate | date: 'MMM d, y' }}</td>
+                                <td>{{ borrow.book.isbn }}</td>
+                                <td>{{ borrow.book.genre?.name }}</td>
+                                <td>{{ borrow.book.auther?.name }}</td>
+                                <td>{{ (!borrow.cost)?'-':'RS: '+borrow.cost }}</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <div *ngIf="fine">
+                        <h3>Fines</h3>
+                        <div class="sq-box">
+                            RS : 100
+                        </div>
+                        <div class="mt-3">
+                            <button class="btn btn-primary" type="button">Pay </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

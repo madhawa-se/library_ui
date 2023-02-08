@@ -2,6 +2,9 @@
     <div class="search-class">
         <p>{{book.name}}</p>
         <p>{{book?.description}}</p>
-        <button type="button" class="btn btn-primary search-class-btn">Read</button>
+        <div class="mb-3">
+            <span class="badge bg-dark">{{book?.genre?.name}}</span>
+        </div>
+        <button type="button" class="btn btn-primary search-class-btn">Details</button>
     </div>
 </div>

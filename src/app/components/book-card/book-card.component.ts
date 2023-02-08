@@ -7,11 +7,12 @@ import { Book } from 'src/models/book-interface';
   styleUrls: ['./book-card.component.scss']
 })
 export class BookCardComponent implements OnInit {
-  @Input() book:Book;
+  @Input() book: any;
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log("book.genre.name ",this.book);
   }
 
 }

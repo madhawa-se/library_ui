@@ -1,0 +1,14 @@
+.user-list{
+    height: 100px;
+
+    li{
+        cursor: pointer;
+        &:hover{
+            background-color: #f5f5f5;
+        }
+    }
+}
+
+.search-box{
+    height: 200px;
+}

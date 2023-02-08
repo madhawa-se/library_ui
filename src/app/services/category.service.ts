@@ -11,6 +11,10 @@ export class CategoryService {
 
   }
 
+  fetch(){
+    return this.http.get("http://localhost:3000/category");
+  }
+
   add(category:any){
     return this.http.post("http://localhost:3000/category",category);
   }

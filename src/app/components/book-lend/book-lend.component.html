@@ -1,0 +1,118 @@
+<div class="main-container">
+    <div class="sidebar-wrapper">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="content">
+        <div class="C-manage-wraper">
+            <div class="container-x">
+                <div class="all-wraper m-5">
+                    <h3 class="title">Lend Books</h3>
+                    <div class="breadcrumb-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Category</li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                    <div class="mt-5 mb-3">
+                        <button type="button" class="btn btn-primary" (click)="selectUser()">Select User</button>
+                        <span>
+                            USER : {{user?.email}}
+                        </span>
+                    </div>
+
+                    <div class="mt-5 mb-2">
+                        <h5>Search Books</h5>
+
+                        <form class="row g-3">
+                            <div class="col-auto">
+                                <input class="form-control" type="text" name="searchterm" [(ngModel)]="searchTerm"
+                                    placeholder="Search.." name="search">
+                            </div>
+                            <div class="col-auto">
+                                <button type="button" class="btn btn-primary" (click)="search()"><i
+                                        class="fa fa-search"></i></button>
+                            </div>
+                        </form>
+
+                    </div>
+
+                    <div>
+                        <table class="table lms-table">
+                            <thead class="t-header">
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">ISBN</th>
+                                    <th scope="col">Genre</th>
+                                    <th scope="col">Author</th>
+                                    <th scope="col">Select</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let book of books">
+                                    <td>{{ book.name }}</td>
+                                    <td>{{ book.isbn }}</td>
+                                    <td>{{ book.genre?.name }}</td>
+                                    <td>{{ book.auther?.name }}</td>
+                                    <td><button type="button" class="btn btn-primary" (click)="selectBook(book)"><i
+                                                class="fa fa-plus" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+
+                    <div class="mt-5">
+                        <div>
+                            <h5> Borrowed Books</h5>
+                            <table class="table lms-table">
+                                <thead class="t-header">
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">ISBN</th>
+                                        <th scope="col">Genre</th>
+                                        <th scope="col">Author</th>
+                                        <th scope="col">Operation</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let borrow of borrowed">
+                                        <td>{{ borrow.book.name }}</td>
+                                        <td>{{ borrow.book.isbn }}</td>
+                                        <td>{{ borrow.book.genre?.name }}</td>
+                                        <td>{{ borrow.book.auther?.name }}</td>
+                                        <td><button type="button" class="btn btn-primary"
+                                                (click)="returnBook(borrow)">
+                                                Return</button></td>
+                                    </tr>
+
+                                    <tr *ngFor="let book of selectedBooks" class="tobe-borrowed">
+                                        <td>{{ book.name }}</td>
+                                        <td>{{ book.isbn }}</td>
+                                        <td>{{ book.genre?.name }}</td>
+                                        <td>{{ book.auther?.name }}</td>
+                                        <td><button type="button" class="btn btn-primary" (click)="removeBook(book)"><i class="fa fa-times" aria-hidden="true"></i>
+                                        </button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div>
+                            <button type="button" (click)="borrow()" class="btn btn-primary">Proceed</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

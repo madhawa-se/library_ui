@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { CategoryService } from 'src/app/services/category.service';
@@ -14,6 +14,8 @@ export class AddCategoryComponent implements OnInit {
   category:any;
   categoryForm: FormGroup;
   isUpdate=false;
+  public event: EventEmitter<any> = new EventEmitter();
+
   constructor(private fb: FormBuilder, private categoryService: CategoryService,private bsModalRef:BsModalRef) {
     this.categoryForm = this.fb.group({
       name: ['', Validators.required],
@@ -55,6 +57,7 @@ export class AddCategoryComponent implements OnInit {
         text: 'The request was successful',
         icon: 'success'
       });
+      this.event.emit('OK');
     },error=>{
       Swal.fire({
         title: 'Error!',
@@ -73,6 +76,7 @@ export class AddCategoryComponent implements OnInit {
         text: 'The request was successful',
         icon: 'success'
       });
+      this.event.emit('OK');
     },error=>{
       Swal.fire({
         title: 'Error!',

@@ -11,6 +11,10 @@ export class AuthorService {
 
   }
 
+  fetch(){
+    return this.http.get("http://localhost:3000/auther");
+  }
+
   addAuthor(author:any){
     return this.http.post("http://localhost:3000/auther",author);
   }
